@@ -24,6 +24,13 @@ class Goods extends Common
     {
         $lists = $this->_goodsModel->getGoodses();
 
+        foreach ($lists as $key => &$value) {
+            $id = $value['id'];
+            $key = 'goods_list_' . $id;
+
+
+        }
+
     }
 
     //设置商品库存
