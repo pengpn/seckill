@@ -13,7 +13,7 @@ include 'Common/bootstrap.php';
 
 $app             = isset($_GET['app']) ? $_GET['app'] : 'app';
 $controller      = isset($_GET['c']) ? $_GET['c'] : 'goods';
-$action          = isset($_GET['a']) ? $_GET['a'] : 'goodsLists';
+$action          = isset($_GET['a']) ? $_GET['a'] : 'goodsList';
 $file            = SEC_ROOT_PATH . DIRECTORY_SEPARATOR . $app . DIRECTORY_SEPARATOR . $controller . '.php';
 
 if (is_file($file)) {
