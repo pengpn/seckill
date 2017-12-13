@@ -10,8 +10,8 @@ class Common
 {
     protected function render($view = '', $data = [])
     {
-        $viewPath = SEC_ROOT_PATH . '/view/';
-        $viewFile = $viewPath . ($view ? $view : CONTROLLER . '/' . ACTION ) . '.php';
+        $viewPath = SEC_ROOT_PATH . DIRECTORY_SEPARATOR .'view' . DIRECTORY_SEPARATOR;
+        $viewFile = $viewPath . ($view ? $view : CONTROLLER . DIRECTORY_SEPARATOR . ACTION ) . '.php';
 
         if (is_file($viewFile)) {
             //页面缓存
@@ -21,6 +21,8 @@ class Common
             extract($data , EXTR_OVERWRITE);
             include $viewFile;
 
+
+
             //获取并清空缓存
             $content = ob_get_clean();
             echo $content;
@@ -28,6 +30,15 @@ class Common
             throw new Exception("模板文件不存在");
         }
 
+    }
+
+    /*
+     * ajax 返回
+     */
+    protected function ajaxReturn($data)
+    {
+        $return = json_encode($data);
+        exit($return);
     }
 
 

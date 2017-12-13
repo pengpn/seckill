@@ -9,3 +9,8 @@
 
 defined('SEC_ROOT_PATH') or define('SEC_ROOT_PATH',dirname(dirname(__FILE__)));
 
+include 'app/common.php';
+include 'Model/Model.php';
+include 'Model/GoodsModel.php';
+include 'Model/OrderModel.php';
+include 'Redis/QRedis.php';

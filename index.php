@@ -14,9 +14,10 @@ include 'Common/bootstrap.php';
 $app             = isset($_GET['app']) ? $_GET['app'] : 'app';
 $controller      = isset($_GET['c']) ? $_GET['c'] : 'goods';
 $action          = isset($_GET['a']) ? $_GET['a'] : 'goodsLists';
-$file            = SEC_ROOT_PATH . '/' . $app . '/' . $controller . '.php';
+$file            = SEC_ROOT_PATH . DIRECTORY_SEPARATOR . $app . DIRECTORY_SEPARATOR . $controller . '.php';
 
 if (is_file($file)) {
+
     defined('APP') or define('APP',$app);
     defined('CONTROLLER') or define('CONTROLLER', $controller);
     defined('ACTION') or define('ACTION', $action);
@@ -26,5 +27,5 @@ if (is_file($file)) {
     $appClass = new $controller();
     $appClass->$action();
 } else {
-    throw  new Exception('应用错误',1);
+    throw new Exception('应用错误',1);
 }
