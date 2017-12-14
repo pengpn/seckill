@@ -95,7 +95,7 @@ class Seckill extends Common
             $gid 	= $goodsInfo['id'];
             $sql_inventory	= 'UPDATE goods SET counts = counts - 1 WHERE id = '.$gid;
 
-            $result = $this->_goodsModel->exect($sql_inventory);
+            $result = $this->_goodsModel->exec($sql_inventory);
             if($result){
                 //创订单
                 $data 				= [];
